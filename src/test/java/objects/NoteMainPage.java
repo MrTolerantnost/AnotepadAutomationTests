@@ -1,6 +1,7 @@
-package Objects;
+package objects;
 
 
+import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -64,6 +65,11 @@ public class NoteMainPage {
         public NoteMainPage findSavedNote(String title){
         driver.findElement(By.linkText(title)).getText();
             return this;
+        }
+
+        public NoteMainPage asertEquelNoteTitle(String title) {
+        driver.findElement(By.linkText("title")).getText();
+        return this;
         }
 
 }

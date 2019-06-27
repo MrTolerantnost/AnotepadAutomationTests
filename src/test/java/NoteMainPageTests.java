@@ -1,4 +1,4 @@
-import Objects.NoteMainPage;
+import objects.NoteMainPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.*;
 import org.openqa.selenium.By;
@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Test1 {
+public class NoteMainPageTests {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -19,7 +19,7 @@ public class Test1 {
         noteMainPage = new NoteMainPage(driver);
         //driver.get(url);
     }
-    @Ignore
+    //@Ignore
     @Test
     public void test() {
         String note = "My First Note";
@@ -31,7 +31,7 @@ public class Test1 {
         Assert.assertEquals(note,noteMainPage.getNoteContent());
         noteMainPage.deleteNote();
     }
-    @Ignore
+    //@Ignore
     @Test
     public void testHW1() {
         String note = "My First Note";
@@ -45,29 +45,29 @@ public class Test1 {
 
 
     }
-    @Ignore
+    //@Ignore
     @Test
     public void noteTitleEquel4symbols() {
-        String notetitle = "1234";
+        String noteTitle = "1234";
         noteMainPage.open()
-                .setTitle(notetitle)
-                .setContent(notetitle)
+                .setTitle(noteTitle)
+                .setContent(noteTitle)
                 .saveNote();
                 //.findSavedNote(notetitle);
-        Assert.assertEquals(notetitle,driver.findElement(By.linkText("1234")).getText());
+        Assert.assertEquals(noteTitle,driver.findElement(By.linkText("1234")).getText());
         noteMainPage.deleteNote();
 
     }
     //@Ignore
     @Test
     public void noteTitleEquel100symbols() {
-        String notetitle = "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
+        String noteTitle = "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
         noteMainPage.open()
-                .setTitle(notetitle)
-                .setContent(notetitle)
+                .setTitle(noteTitle)
+                .setContent(noteTitle)
                 .saveNote();
-                //.findSavedNote(notetitle);
-        Assert.assertEquals(notetitle,driver.findElement(By.linkText(notetitle)).getText());
+                //.findSavedNote(noteTitle);
+        Assert.assertEquals(noteTitle,driver.findElement(By.linkText(noteTitle)).getText());
         noteMainPage.deleteNote();
 
     }
